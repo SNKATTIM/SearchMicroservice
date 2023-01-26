@@ -52,7 +52,7 @@ public class FlightServiceImpl implements IFlightService{
 		searchResult.addAll(flights);
 		flights.forEach(flight->{
 			flight.getFares();
-			int inv =flight.getInventory().getCount();
+			long inv =flight.getInventory().getCount();
 			if(inv==0)
 			{
 				searchResult.remove(flight);
@@ -62,7 +62,7 @@ public class FlightServiceImpl implements IFlightService{
 	}
 
 	@Override
-	public void updateInventory(long flightNmber, String flightDate, int inventory) {
+	public void updateInventory(long flightNmber, String flightDate, long inventory) {
 		Flight flight = flightRepository.findByFlightNumberAndFlightdate(flightNmber,flightDate);
 		Inventory inv = flight.getInventory();
 		inv.setCount(inventory);

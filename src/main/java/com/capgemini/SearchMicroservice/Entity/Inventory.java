@@ -14,7 +14,7 @@ public class Inventory {
 	@Column(name = "inv_id")
 	private long id;
 	
-	int count;
+	long count;
 
 	public long getId() {
 		return id;
@@ -24,15 +24,15 @@ public class Inventory {
 		this.id = id;
 	}
 
-	public int getCount() {
+	public long getCount() {
 		return count;
 	}
 
-	public void setCount(int count) {
+	public void setCount(long count) {
 		this.count = count;
 	}
 
-	public Inventory( int count) {
+	public Inventory( long count) {
 		super();
 		
 		this.count = count;

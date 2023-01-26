@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ import com.capgemini.SearchMicroservice.Service.FlightServiceImpl;
 
 @RestController
 @RequestMapping("/api/flight")
+@CrossOrigin
 public class FlightController 
 {
 	@Autowired
@@ -39,7 +41,7 @@ public class FlightController
 		return flightImpl.getFlightlist();
 		
 	}
-	@PostMapping("/getbyoriginAndDest/{Origin}/{Destination}/{flightdate}")
+	@GetMapping("/getbyoriginAndDest/{Origin}/{Destination}/{flightdate}")
 	public List<Flight> getbyoriginAndDest(@PathVariable String Origin,@PathVariable String Destination, @PathVariable String flightdate){
 		return flightImpl.getFlightByOriginAndDestination(Origin, Destination,flightdate);
 	}
@@ -113,15 +115,13 @@ public class FlightController
 		return new ResponseEntity<>(flightImpl.findBydate(flightDate),HttpStatus.OK);
 	}
 	
-	
-	
+	@GetMapping("/update/{flightNumber}/{flightDate}/{inventory}")
+	public void updateInventory(@PathVariable long flightNumber, @PathVariable String flightDate,@PathVariable int inventory )
 
-	
-	
-	
-	
-	
-	
+	{
+		flightImpl.updateInventory(flightNumber, flightDate, inventory);
+ 		
+	}
 	
 
 }

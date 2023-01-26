@@ -30,7 +30,7 @@ public class Flight {
 	private String origin;
 	private String destination;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "DD-MM-YYYY")
 	private String flightdate;
 	
 	@DateTimeFormat(pattern = "'T'HH:mm") 

@@ -14,7 +14,7 @@ public class Fares {
 	@Column(name = "fare_id")
 	long id;
 
-	String fare;
+	long fare;
 	String Currency;
 	
 	
@@ -25,10 +25,10 @@ public class Fares {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getFare() {
+	public long getFare() {
 		return fare;
 	}
-	public void setFare(String fare) {
+	public void setFare(long fare) {
 		this.fare = fare;
 	}
 	public String getCurrency() {
@@ -37,7 +37,7 @@ public class Fares {
 	public void setCurrency(String currency) {
 		Currency = currency;
 	}
-	public Fares( String fare, String currency) {
+	public Fares( long fare, String currency) {
 		super();
 		
 		this.fare = fare;

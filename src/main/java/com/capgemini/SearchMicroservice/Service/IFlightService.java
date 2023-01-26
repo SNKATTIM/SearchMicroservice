@@ -14,7 +14,7 @@ public interface IFlightService
 	public List<Flight> getFlightByOriginAndDestination(String Origin, String Destination, String flightdate);
 	public Flight getByDate(long flightNumber, String flightdate);
 	public List<Flight> search(SearchQuery query);
-	public void updateInventory(long flightNmber, String flightDate, int inventory);
+	public void updateInventory(long flightNmber, String flightDate, long inventory);
 	public ResponseEntity<?> addFlight(Flight flight) throws Exception;
 	public Flight findByFlightNumber(Long id);
 	public List<Flight> FlightByOriginAndDestination(String origin,String Destination);
